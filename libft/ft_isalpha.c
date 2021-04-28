@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 23:13:06 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:41:54 by sylducam         ###   ########lyon.fr   */
+/*   Created: 2020/12/04 13:56:06 by sylducam          #+#    #+#             */
+/*   Updated: 2020/12/04 13:56:11 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
-# endif
+#include "header_libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/header_libft.h" // a virer ?
-
-int				get_next_line(int fd, char **line);
-int				find_eol(char *s);
-//char			*ft_strdup(char *s);
-//char			*ft_strjoin(char *s1, char *s2);
-
-#endif
+int		ft_isalpha(int c)
+{
+	if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+		return (0);
+	else
+		return (1);
+}

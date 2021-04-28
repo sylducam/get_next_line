@@ -6,13 +6,13 @@
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 23:14:45 by sylducam          #+#    #+#             */
-/*   Updated: 2020/02/14 23:14:51 by sylducam         ###   ########lyon.fr   */
+/*   Updated: 2021/04/28 17:39:54 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static size_t	ft_strlen(char *s)
+/*static size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -64,7 +64,7 @@ char			*ft_strjoin(char *s1, char *s2)
 	str[i] = '\0';
 	free(s1);
 	return (str);
-}
+}*/
 
 int				find_eol(char *s)
 {

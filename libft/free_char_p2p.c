@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   free_char_p2p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 23:13:06 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:41:54 by sylducam         ###   ########lyon.fr   */
+/*   Created: 2021/04/18 18:16:22 by sylducam          #+#    #+#             */
+/*   Updated: 2021/04/20 13:32:24 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
-# endif
+#include "header_libft.h"
+#include <stdlib.h>
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/header_libft.h" // a virer ?
+// This function frees char pointer to pointers
 
-int				get_next_line(int fd, char **line);
-int				find_eol(char *s);
-//char			*ft_strdup(char *s);
-//char			*ft_strjoin(char *s1, char *s2);
+int	free_char_p2p(char **str)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (!str || !*str)
+		return (-1);
+	while (str[i])
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
+	free(str);
+	str = NULL;
+	return (0);
+}

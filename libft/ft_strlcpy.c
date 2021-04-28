@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 23:13:06 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:41:54 by sylducam         ###   ########lyon.fr   */
+/*   Created: 2020/12/04 14:04:41 by sylducam          #+#    #+#             */
+/*   Updated: 2020/12/04 14:04:48 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
-# endif
+#include "header_libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/header_libft.h" // a virer ?
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t i;
 
-int				get_next_line(int fd, char **line);
-int				find_eol(char *s);
-//char			*ft_strdup(char *s);
-//char			*ft_strjoin(char *s1, char *s2);
-
-#endif
+	i = 0;
+	if (!dst && !src)
+		return (0);
+	if (size == 0 || dst == 0 || src == 0)
+		return (ft_strlen(src));
+	while (i < size - 1 && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}

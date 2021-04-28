@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 23:13:06 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:41:54 by sylducam         ###   ########lyon.fr   */
+/*   Created: 2020/12/04 14:04:30 by sylducam          #+#    #+#             */
+/*   Updated: 2020/12/04 14:04:34 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
-# endif
+#include "header_libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/header_libft.h" // a virer ?
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	src_len;
+	size_t	dest_len;
 
-int				get_next_line(int fd, char **line);
-int				find_eol(char *s);
-//char			*ft_strdup(char *s);
-//char			*ft_strjoin(char *s1, char *s2);
-
-#endif
+	i = 0;
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
+	while (src[i] && (dest_len + 1 + i) < size)
+	{
+		dest[dest_len + i] = src[i];
+		i++;
+	}
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
+}

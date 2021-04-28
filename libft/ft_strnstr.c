@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 23:13:06 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:41:54 by sylducam         ###   ########lyon.fr   */
+/*   Created: 2020/12/04 14:05:37 by sylducam          #+#    #+#             */
+/*   Updated: 2020/12/04 14:05:41 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
-# endif
+#include "header_libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/header_libft.h" // a virer ?
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-int				get_next_line(int fd, char **line);
-int				find_eol(char *s);
-//char			*ft_strdup(char *s);
-//char			*ft_strjoin(char *s1, char *s2);
-
-#endif
+	i = 0;
+	j = 0;
+	if (s2[j] == '\0')
+		return ((char *)s1);
+	while (i < len && s1[i])
+	{
+		if (s1[i] == s2[j])
+			j++;
+		else if (s2[j] == '\0')
+			return ((char *)&s1[i - j]);
+		else
+		{
+			i -= j;
+			j = 0;
+		}
+		i++;
+	}
+	if (s2[j] == '\0')
+		return ((char *)&s1[i - j]);
+	return (0);
+}
