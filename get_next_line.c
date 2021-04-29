@@ -6,13 +6,13 @@
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 23:12:42 by sylducam          #+#    #+#             */
-/*   Updated: 2020/02/14 23:12:53 by sylducam         ###   ########lyon.fr   */
+/*   Updated: 2021/04/29 10:30:06 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		update(char **line, char **buffer)
+static int	update(char **line, char **buffer)
 {
 	int		eol;
 	char	*temp;
@@ -37,15 +37,14 @@ static int		update(char **line, char **buffer)
 	return (1);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*buffer;
 	char		*reader;
 	int			eoread;
 
-	reader = NULL;
-	if (!line || fd < 0 || BUFFER_SIZE <= 0
-			|| ((reader = malloc(sizeof(char) * (BUFFER_SIZE + 1))) == NULL))
+	reader = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!line || fd < 0 || BUFFER_SIZE <= 0 || reader  == NULL)
 		return (-1);
 	while (find_eol(buffer) == -1
 			&& (eoread = read(fd, reader, BUFFER_SIZE)) > 0)

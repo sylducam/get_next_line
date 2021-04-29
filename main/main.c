@@ -9,7 +9,6 @@ int main()
 	int	fd = open("file", O_RDONLY);
 	while (ret == 1)
 	{
-		dprintf(1, "OK");
 		ret = get_next_line(fd, &line);
 		dprintf(1, "%s\n", line);
 		dprintf(1, "ret = %d\n" , ret);
