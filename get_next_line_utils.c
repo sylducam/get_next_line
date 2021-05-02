@@ -6,13 +6,13 @@
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 23:14:45 by sylducam          #+#    #+#             */
-/*   Updated: 2021/04/28 17:39:54 by sylducam         ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 09:43:44 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*static size_t	ft_strlen(char *s)
+static size_t	gnl_strlen(char *s)
 {
 	size_t	i;
 
@@ -24,14 +24,15 @@
 	return (i);
 }
 
-char			*ft_strdup(char *s)
+char	*gnl_strdup(char *s)
 {
 	char	*str;
 	size_t	i;
 
 	if (!s)
 		return (NULL);
-	if ((str = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))) == NULL)
+	str = (char *)malloc(sizeof(char) * (gnl_strlen(s) + 1));
+	if (str == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i])
@@ -43,7 +44,7 @@ char			*ft_strdup(char *s)
 	return (str);
 }
 
-char			*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -52,8 +53,8 @@ char			*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (s1 == NULL)
-		return (ft_strdup(s2));
-	str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		return (gnl_strdup(s2));
+	str = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
 	if (str == NULL)
 		return (NULL);
 	while (s1[j])
@@ -64,9 +65,9 @@ char			*ft_strjoin(char *s1, char *s2)
 	str[i] = '\0';
 	free(s1);
 	return (str);
-}*/
+}
 
-int				find_eol(char *s)
+int	find_eol(char *s)
 {
 	int	i;
 
