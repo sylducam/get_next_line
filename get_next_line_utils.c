@@ -6,7 +6,7 @@
 /*   By: sylducam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 23:14:45 by sylducam          #+#    #+#             */
-/*   Updated: 2021/05/02 09:43:44 by sylducam         ###   ########lyon.fr   */
+/*   Updated: 2021/05/04 08:51:00 by sylducam         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*gnl_strdup(char *s)
 	char	*str;
 	size_t	i;
 
+	str = NULL;
 	if (!s)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * (gnl_strlen(s) + 1));
