@@ -1,3 +1,0 @@
-WARNING
-The main.c and files tested should be in the same dir as gnl. So it won't work
-if you don't move them back to the parent directory
